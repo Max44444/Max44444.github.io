@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.header, .footer {
+  padding: 20px;
+  color: white;
+  font-size: 120%;
+  width: 100vw;
+  height: 153px;
+  background-color: #00c3ff;
+}
+
+.header .white_title, .footer .white_title {
+  margin-right: auto;
+}
+
+.header .white_title h2, .footer .white_title h2 {
+  text-align: left;
+}
+
+.header .title, .footer .title {
+  background-color: white;
+  height: 50px;
+  width: 200px;
+  margin-left: auto;
+  color: black;
+}
+
+p {
+  margin: 0%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+ul {
+  -webkit-padding-start: 0%;
+          padding-inline-start: 0%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.row-bottom-margin {
+  margin: 0px !important;
+}
+
+.main .content .two .row, .main .content .three .row, .main .content .six .row, .main .content .five .row, .main .four .row {
+  height: 100%;
+}
+
+.main {
+  width: 100vw;
+}
+
+.main .content .two {
+  background-color: coral;
+  height: 561px;
+}
+
+.main .content .three {
+  background-color: greenyellow;
+  height: 51px;
+}
+
+.main .content .six {
+  background-color: greenyellow;
+  height: 51px;
+}
+
+.main .content .five {
+  background-color: white;
+}
+
+.main .four {
+  background-color: coral;
+  height: 612px;
+}
