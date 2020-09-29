@@ -147,8 +147,8 @@ body .list ul li::before {
           transform: scaleX(0);
   -webkit-transform-origin: inherit;
           transform-origin: inherit;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 body .list ul li:hover::before {
@@ -171,6 +171,6 @@ body .list ul li span {
   padding: 8px;
   display: inline-block;
   z-index: 1;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0s;
+  transition: 0s;
 }

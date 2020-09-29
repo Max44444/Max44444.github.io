@@ -96,7 +96,7 @@ body {
                     background: red;
                     transform: scaleX(0);
                     transform-origin: inherit;
-                    transition: 0.5s;
+                    transition: 0.3s;
                 }
 
                 &:hover::before {
@@ -118,7 +118,7 @@ body {
                     padding: 8px;
                     display: inline-block;
                     z-index: 1;
-                    transition: 0.2s;
+                    transition: 0s;
                 }
 
             }
