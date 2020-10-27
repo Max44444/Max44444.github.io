@@ -74,9 +74,7 @@ a {
           flex-direction: column;
 }
 
-.wrapper .header .white_title {
-  padding-top: 15px;
-  padding-bottom: 15px;
+.wrapper .header {
   position: relative;
 }
 
@@ -209,6 +207,10 @@ a {
           justify-content: center;
 }
 
+.wrapper .footer {
+  position: relative;
+}
+
 .wrapper .footer .title {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -247,4 +249,25 @@ a {
   height: 10px;
   right: 10px;
   bottom: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  background-color: rgba(24, 24, 24, 0.8);
+}
+
+.wrapper .submit-button {
+  position: absolute;
+  /*height: 1.1rem;
+    width: 4rem;*/
+  padding: 1px 8px 1px 8px;
+  right: 10px;
+  bottom: 10px;
+  color: white;
+  background-color: rgba(24, 24, 24, 0.8);
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 5px;
 }

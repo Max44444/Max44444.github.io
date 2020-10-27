@@ -3,22 +3,19 @@ window.addEventListener('load', function() {
 
   function taskOne() {
     let three = document.querySelector('.three'),
-        six = document.querySelector('.six'),
-        content = three.innerHTML;
-    three.innerHTML = six.innerHTML;
-    six.innerHTML = content;
+        six = document.querySelector('.six');
+    [three.innerHTML, six.innerHTML] = [six.innerHTML, three.innerHTML];
   }
   taskOne();
 
   function taskTwo() {
-    let a = +prompt('Enter first base of the trapezoid: '),
-        b = +prompt('Enter first base of the trapezoid: ');
+    let a = 2, b = 5;
     
     document.querySelector('.five')
     .getElementsByTagName('p')[0].innerHTML += 
     `<br/><br/><b/> square of trapezoid is : ${(a + b) / 2}`;
   }
-  //taskTwo();
+  taskTwo();
 
   function createForm(labelText, inputType, inputNumber, isButton) {
     let form = document.createElement("form"),
@@ -100,7 +97,7 @@ window.addEventListener('load', function() {
 
     document.querySelector('.five').appendChild(form);
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
       let divisors = findDivisors(inputs[0].value);
       inputs[0].value = '';
@@ -139,18 +136,7 @@ window.addEventListener('load', function() {
       inputs[1].checked = true;
     }
 
-
-    taskSix()
-      .then((blocks)=>{
-        blocks.forEach((i) => {
-          loadChanges(i);
-        });
-      })
-      .catch((blocks) => {
-        blocks.forEach((i) => {
-        createTextArea(i);
-        });
-      });
+    taskSix();
   }
 
   function toUpperCaseFirstLetters(str) {
@@ -179,7 +165,7 @@ window.addEventListener('load', function() {
     textArea.textContent = container.innerHTML;
 
     textArea.addEventListener('input', function () {
-      localStorage.setItem('block' + container.id, textArea.value);
+      localStorage.setItem('block' + container.id, this.value);
     });
 
     container.appendChild(textArea);
@@ -194,12 +180,13 @@ window.addEventListener('load', function() {
 
       let button = document.createElement('button');
       button.textContent = 'submit';
-      button.style.backgroundColor = '#8f8f8f';
+      button.classList.add('submit-button');
 
       button.addEventListener('click', function () {
         container.innerHTML = backup;
         this.style.display = 'none';
         localStorage.removeItem('block' + container.id);
+        createTextArea(container);
       });
 
       container.appendChild(button);
@@ -214,13 +201,12 @@ window.addEventListener('load', function() {
         document.querySelector('.five'),
         document.querySelector('.six')];
 
-    return new Promise(function(resolve, reject) {
-      if ([false, ...blocks].reduce((a, b) => a || localStorage.getItem('block' + b.id))) {
-        resolve(blocks);
+    blocks.forEach((i) => {
+      if (localStorage.getItem('block' + i.id)) {
+        loadChanges(i);
       } else {
-        reject(blocks);
+        createTextArea(i);
       }
     });
   }
-
 });
