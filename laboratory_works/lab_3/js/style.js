@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
   taskOne();
 
   function taskTwo() {
-    let a = 2, b = 5;
+    const a = 2, b = 5;
     
     document.querySelector('.five')
     .getElementsByTagName('p')[0].innerHTML += 
@@ -171,12 +171,63 @@ window.addEventListener('load', function() {
     container.appendChild(textArea);
   }
 
+  function parser (str) {
+    let result = str.matchAll(/<[^<>]+>/g),
+        text = str.split(/<[^<>]+>/),
+        stack = [],
+        div = document.createElement('div'),
+
+        isSingleTag = (tag) => {
+          div.innerHTML = tag;
+          return div.firstChild && div.innerHTML != `${tag}</${tag.match(/\w+/)}>`;
+        },
+
+        packStackIntoContainer = (end, container = div) => {
+          container.innerHTML = '';
+          while (end != 0) {
+            if((typeof stack[0]) === "string") {
+              container.insertBefore(document.createTextNode(stack[0]), container.firstChild);
+            } else {
+              container.insertBefore(stack[0], container.firstChild);
+            }
+            stack.shift();
+            --end;
+          }
+          stack.shift();
+          return container;
+        };
+
+    Array.from(result).forEach((tag, index) => {
+      stack.unshift(text[index]);
+
+      if (tag[0][1] == '/'){
+        let res = stack.findIndex(item => {
+          return (new RegExp(`<${tag[0].match(/\w+/)}.*?>`)).exec(item);
+        });
+
+        div.innerHTML = stack[res];
+        stack.unshift(res+1 ? packStackIntoContainer(res, div.firstChild) : tag[0]);
+      } else {
+        div.innerHTML = tag[0];
+        if(div.firstChild) {
+          stack.unshift(isSingleTag(tag[0]) ? div.firstChild : tag[0]);
+        } else {
+          stack.unshift(document.createTextNode(tag[0]));
+        }
+      }
+    });
+    stack.unshift(text.pop());
+    return packStackIntoContainer(stack.length).innerHTML;
+  }
+
   function loadChanges(container) {
     let content = localStorage.getItem('block' + container.id);
 
     if (content) {
       let backup = container.innerHTML;
-      container.innerHTML = content;
+      let div = document.createElement('div');
+
+      container.innerHTML = parser(content);
 
       let button = document.createElement('button');
       button.textContent = 'submit';
