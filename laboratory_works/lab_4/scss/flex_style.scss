@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.blue_row {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 153px;
+  padding: 0px 20px 0px 20px;
+  color: white;
+  font-size: 120%;
+  background-color: rgb(0, 195, 255);
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    margin-left: auto;
+    color: black;
+  }
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+div {
+  gap: 2px;
+}
+
+p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+ul {
+  padding-inline-start: 0%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    //@extend %blue_row;
+    overflow: hidden;
+  }
+
+  .content {
+    flex: 1 1 auto;
+    display: flex;
+
+    .inner_content {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      min-height: 100%;
+
+      .content_235 {
+        flex: 1 1 auto;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+        .two {
+          background-color: coral;
+          flex: 0 0 25%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .content_text {
+          flex: 0 0 75%;
+
+          .three {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: greenyellow;
+            height: 53px;
+            overflow: hidden;
+          }
+
+          .five {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .six {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: greenyellow;
+        height: 53px;
+        overflow: hidden;
+      }
+    }
+
+    .four {
+      background-color: coral;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+  }
+
+  .footer {
+    //@extend %blue_row;
+
+    .title {
+      justify-content: flex-end;
+    }
+    overflow: hidden;
+  }
+}
+
+.five-form {
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 95%;
+  display: flex;
+
+  * {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  label {
+    width: 8rem;
+    font-style: normal;
+  }
+
+  input {
+    font-style: normal;
+    flex: 1 0 auto;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+  }
+
+  button {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: greenyellow;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 6rem;
+  }
+}
