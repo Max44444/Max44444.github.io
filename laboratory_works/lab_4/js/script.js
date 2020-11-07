@@ -125,22 +125,46 @@ window.addEventListener('load', function() {
   taskTwo();
 
   function taskThree() {
-    let {form, inputs} = createForm('enter account name', 'text', 1, true, 'get commits');
+    let {form, inputs} = createForm('enter account name', 'text', 2, true, 'get commits');
     numBlocks[4].appendChild(form);
 
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      let accountRepo = inputs[0].value.replace(' ', '').toLowerCase();
 
-      let request = new XMLHttpRequest();
-      request.open('GET', 'https://github.com/Max44444/Max44444.github.io/commits/master');
-      request.responseType = 'text';
-      request.onload = function() {
-        alert(request.response);
-      };
-      request.send();
+      let url = "https://api.github.com/repos/"+inputs[0].value+"/"+inputs[1].value+"/commits";
+      
+      
+      fetch(url)
+            .then(response => {
+              if (!response.ok) {
+                let e = document.getElementById('error'),
+                    button = document.createElement('button');
+                button.textContent = 'close';
+                button.classList.add('close');
 
-      inputs[0] = '';
+                button.addEventListener('click', () => {
+                  e.style.display = 'none';
+                });
+                e.textContent = response.status+"("+response.statusText+")";
+                e.appendChild(button);
+
+                e.style.display = 'flex';
+                throw new Error(response.message);
+              }
+              return response.json();
+            })
+            .then(contents => {
+              console.log(contents);
+              let msg = '';
+              contents.forEach(i => {
+                msg += `${i.commit.author.name} : ${i.commit.message}\n`;
+              });
+              alert(msg);
+            })
+            .catch((e) => {});
+
+      //inputs[0].value = '';
+      //inputs[1].value = '';
     });
   }
 
