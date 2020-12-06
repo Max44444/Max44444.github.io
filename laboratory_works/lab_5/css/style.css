@@ -4,7 +4,7 @@
   border: 0;
 }
 
-.blue_row {
+.wrapper .header, .wrapper .footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,7 +21,7 @@
   background-color: #00c3ff;
 }
 
-.blue_row .title {
+.wrapper .header .title, .wrapper .footer .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,6 +39,7 @@
 }
 
 html, body {
+  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -72,10 +73,6 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.wrapper .header {
-  overflow: hidden;
 }
 
 .wrapper .content {
@@ -131,7 +128,6 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: hidden;
 }
 
 .wrapper .content .inner_content .content_235 .content_text {
@@ -147,16 +143,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   background-color: greenyellow;
   height: 53px;
-  overflow: hidden;
 }
 
 .wrapper .content .inner_content .content_235 .content_text .five {
@@ -167,16 +158,26 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: hidden;
+  height: calc(100% - 73px);
 }
 
-.wrapper .content .inner_content .six {
+.wrapper .content .inner_content .content_235 .content_text .five .play-btn {
+  width: 200px;
+  height: 40px;
+  font-size: 1.5rem;
+  background-color: black;
+  color: red;
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+.wrapper .content .inner_content .content_235 .content_text .five .inner-five-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -184,6 +185,22 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 200px;
+}
+
+.wrapper .content .inner_content .content_235 .content_text .five #anim-info {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.wrapper .content .inner_content .six {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -192,7 +209,6 @@ a {
           justify-content: center;
   background-color: greenyellow;
   height: 53px;
-  overflow: hidden;
 }
 
 .wrapper .content .four {
@@ -201,21 +217,12 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: hidden;
-}
-
-.wrapper .footer {
-  overflow: hidden;
 }
 
 .wrapper .footer .title {
@@ -224,79 +231,96 @@ a {
           justify-content: flex-end;
 }
 
-.five-form {
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 95%;
+.work-space {
+  position: absolute;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.five-form * {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.five-form label {
-  width: 8rem;
-  font-style: normal;
-}
-
-.five-form input {
-  font-style: normal;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-}
-
-.five-form button {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  background-color: greenyellow;
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 6rem;
-}
-
-.error {
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: red;
-  width: 400px;
-  height: 200px;
-  border-style: solid;
-  border-width: 5px;
-  border-radius: 15px;
-  font-size: 2rem;
-  color: black;
-  font-weight: 300;
-  position: absolute;
-  top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
-  z-index: 2;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  width: calc(50vw + 10px);
+  height: calc(70vh + 50px);
+  background-color: black;
 }
 
-.error .close {
-  background-color: red;
-  color: black;
+.work-space .anim {
+  position: relative;
+  width: 50vw;
+  height: 70vh;
   border-style: solid;
-  border-width: 3px;
-  border-radius: 15px;
-  font-size: 2rem;
-  color: black;
-  font-weight: 300;
+  border-width: 5px;
+  border-color: red;
+  background-image: url("../img/texture.png");
+  overflow: hidden;
+}
+
+.work-space .anim .square {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+}
+
+.work-space .controls {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: calc(50vw + 10px);
+  height: 40px;
+  background-color: black;
+}
+
+.work-space .controls .text-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 1px;
+  color: red;
+  background-color: black;
+  font-size: 1rem;
+  height: 36px;
+  width: calc(25vw + 5px);
+  border-style: solid;
+  border-width: 2px;
+  border-color: red;
+  border-radius: 5px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.work-space .controls button {
+  color: red;
+  margin: 1px;
+  color: red;
+  background-color: black;
+  font-size: 1rem;
+  height: 40px;
+  width: calc(12.5vw + 2.5px);
+  border-style: solid;
+  border-width: 2px;
+  border-color: red;
+  border-radius: 5px;
 }

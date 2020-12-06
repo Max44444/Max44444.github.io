@@ -1,0 +1,231 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+%blue_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 153px;
+  padding: 0px 20px 0px 20px;
+  color: white;
+  font-size: 120%;
+  background-color: rgb(0, 195, 255);
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    margin-left: auto;
+    color: black;
+  }
+}
+
+html, body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+div {
+  gap: 2px;
+}
+
+p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+ul {
+  padding-inline-start: 0%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    @extend %blue_row
+  }
+
+  .content {
+    flex: 1 1 auto;
+    display: flex;
+
+    .inner_content {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      min-height: 100%;
+
+      .content_235 {
+        flex: 1 1 auto;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+        .two {
+          background-color: coral;
+          flex: 0 0 25%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .content_text {
+          flex: 0 0 75%;
+
+          .three {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: greenyellow;
+            height: 53px;
+          }
+
+          .five {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 73px);
+
+            .play-btn {
+              width: 200px;
+              height: 40px;
+              font-size: 1.5rem;
+              background-color: black;
+              color: red;
+              border: 3px solid red;
+              border-radius: 10px;
+            }
+
+            .inner-five-block {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;
+              height: 200px;
+            }
+            #anim-info {
+              overflow-x: hidden;
+              overflow-y: scroll;
+            }
+          }
+        }
+      }
+
+      .six {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: greenyellow;
+        height: 53px;
+      }
+    }
+
+    .four {
+      background-color: coral;
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .footer {
+    @extend %blue_row;
+
+    .title {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.work-space {
+  position: absolute;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;;
+  width: calc(50vw + 10px);
+  height: calc(70vh + 50px);
+  background-color: black;
+
+  .anim {
+    position: relative;
+    width: 50vw;
+    height: 70vh;
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    background-image: url('../img/texture.png');
+    overflow: hidden;
+
+    .square {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+    }
+  }
+
+  .controls {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: calc(50vw + 10px);
+    height: 40px;
+    background-color: black;
+
+    .text-msg {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 1px;
+      color: red;
+      background-color: black;
+      font-size: 1rem;
+      height: 36px;
+      width: calc(25vw + 5px);
+      border-style: solid;
+      border-width: 2px;
+      border-color: red;
+      border-radius: 5px;
+      overflow: auto;
+      overflow-x: hidden;
+    }
+
+    button {
+      color: red;
+      margin: 1px;
+      color: red;
+      background-color: black;
+      font-size: 1rem;
+      height: 40px;
+      width: calc(12.5vw + 2.5px);
+      border-style: solid;
+      border-width: 2px;
+      border-color: red;
+      border-radius: 5px;
+    }
+  }
+}

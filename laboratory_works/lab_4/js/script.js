@@ -91,7 +91,8 @@ window.addEventListener('load', function() {
     obj.addEventListener('change', () => {
       alert('task five');
       setTimeout(() => {
-        document.querySelector('.blue_row').style.paddingLeft = 0;
+        document.querySelectorAll('.blue_row')[0].style.paddingLeft = 0;
+        document.querySelectorAll('.blue_row')[1].style.paddingLeft = 0;
       }, 5000);
     });
   }
@@ -101,7 +102,7 @@ window.addEventListener('load', function() {
     swapContent = (index) => {
       [numBlocks[index].innerHTML, numBlocks[(index+1)%7].innerHTML] = 
       [numBlocks[(index+1)%7].innerHTML, numBlocks[index].innerHTML];
-      if (index < 6) {
+      if (index < 5) {
         delay += 100;
         setTimeout(swapContent, delay, ++index);
       } else {
@@ -163,8 +164,8 @@ window.addEventListener('load', function() {
             })
             .catch((e) => {});
 
-      //inputs[0].value = '';
-      //inputs[1].value = '';
+      inputs[0].value = '';
+      inputs[1].value = '';
     });
   }
 
